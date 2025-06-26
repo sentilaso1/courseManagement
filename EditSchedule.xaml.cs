@@ -27,8 +27,8 @@ namespace CourseManagerment
             InitializeComponent();
             editSchedule = schedule;
             LoadcbData();
+            txtTeachingId.Text = schedule.TeachingScheduleId.ToString();
             cbCourseId.SelectedValue = schedule.CourseId;
-            cbCourseId.IsEnabled = false;
             Picker.SelectedDate = schedule.TeachingDate;
             Slot.Text = schedule.Slot?.ToString();
             cbRoomId.SelectedValue = schedule.RoomId;
