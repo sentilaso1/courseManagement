@@ -72,5 +72,61 @@ namespace CourseManagerment
             }
 
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgSchedule.SelectedItem is CourseSchedule selected)
+            {
+                var schedule = context.CourseSchedules.Find(selected.TeachingScheduleId);
+                if (schedule != null)
+                {
+                    var editWindow = new EditSchedule(schedule);
+                    if (editWindow.ShowDialog() == true)
+                    {
+                        context.SaveChanges();
+                        if (cbCourse.SelectedValue is int cId)
+                        {
+                            LoadData(cId);
+                        }
+                        else
+                        {
+                            LoadData();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a schedule to edit");
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgSchedule.SelectedItem is CourseSchedule selected)
+            {
+                if (MessageBox.Show("Are you sure you want to delete?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    var schedule = context.CourseSchedules.Find(selected.TeachingScheduleId);
+                    if (schedule != null)
+                    {
+                        context.CourseSchedules.Remove(schedule);
+                        context.SaveChanges();
+                        if (cbCourse.SelectedValue is int cId)
+                        {
+                            LoadData(cId);
+                        }
+                        else
+                        {
+                            LoadData();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a schedule to delete");
+            }
+        }
     }
 }

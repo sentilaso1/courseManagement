@@ -21,8 +21,8 @@
             </DataGrid>
             <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left">
                 <Button Name="btnAdd" Content="Add" Width="80" Margin="5" Click="btnAdd_Click"></Button>
-                <Button Name="btnEdit" Content="Edit" Width="80" Margin="5"></Button>
-                <Button Name="btnDelete" Content="Delete" Width="80" Margin="5"></Button>
+                <Button Name="btnEdit" Content="Edit" Width="80" Margin="5" Click="btnEdit_Click"></Button>
+                <Button Name="btnDelete" Content="Delete" Width="80" Margin="5" Click="btnDelete_Click"></Button>
                 <Button Name="btnReset" Content="Reset" Width="80" Margin="5" Click="btnReset_Click"></Button>
             </StackPanel>
         </StackPanel>
