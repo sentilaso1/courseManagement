@@ -1,0 +1,52 @@
+<Window x:Class="CourseManagerment.StudentManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Student Management" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="txtSearch" Width="200" Margin="0,0,0,5" TextChanged="txtSearch_TextChanged" />
+        <DataGrid Grid.Row="1" Name="dgStudents" AutoGenerateColumns="False" Margin="0,0,0,5" SelectionChanged="dgStudents_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="StudentId" Binding="{Binding StudentId}" />
+                <DataGridTextColumn Header="Roll" Binding="{Binding Roll}" />
+                <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="MidName" Binding="{Binding MidName}" />
+                <DataGridTextColumn Header="LastName" Binding="{Binding LastName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="StudentId:" Margin="5" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txtStudentId" Margin="5" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Roll:" Margin="5" />
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txtRoll" Margin="5" />
+            <Label Grid.Row="2" Grid.Column="0" Content="FirstName:" Margin="5" />
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txtFirstName" Margin="5" />
+            <Label Grid.Row="3" Grid.Column="0" Content="MidName:" Margin="5" />
+            <TextBox Grid.Row="3" Grid.Column="1" Name="txtMidName" Margin="5" />
+            <Label Grid.Row="4" Grid.Column="0" Content="LastName:" Margin="5" />
+            <TextBox Grid.Row="4" Grid.Column="1" Name="txtLastName" Margin="5" />
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="btnAdd" Content="Add" Width="80" Margin="5" Click="btnAdd_Click" />
+                <Button Name="btnEdit" Content="Edit" Width="80" Margin="5" Click="btnEdit_Click" />
+                <Button Name="btnDelete" Content="Delete" Width="80" Margin="5" Click="btnDelete_Click" />
+                <Button Name="btnReset" Content="Reset" Width="80" Margin="5" Click="btnReset_Click" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
