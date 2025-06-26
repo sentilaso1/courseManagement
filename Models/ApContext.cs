@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace CourseManagerment.Models;
 
@@ -41,7 +42,9 @@ public partial class ApContext : DbContext
         var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DB"));
+            var connection = config.GetConnectionString("DB");
+            var serverVersion = ServerVersion.AutoDetect(connection);
+            optionsBuilder.UseMySql(connection, serverVersion);
         }
     }
 
