@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CourseManagerment.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CourseManagerment
 {
@@ -107,9 +108,15 @@ namespace CourseManagerment
             {
                 if (MessageBox.Show("Are you sure you want to delete?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    var schedule = context.CourseSchedules.Find(selected.TeachingScheduleId);
+                    var schedule = context.CourseSchedules
+                        .Include(s => s.RollCallBooks)
+                        .FirstOrDefault(s => s.TeachingScheduleId == selected.TeachingScheduleId);
                     if (schedule != null)
                     {
+                        if (schedule.RollCallBooks.Any())
+                        {
+                            context.RollCallBooks.RemoveRange(schedule.RollCallBooks);
+                        }
                         context.CourseSchedules.Remove(schedule);
                         context.SaveChanges();
                         if (cbCourse.SelectedValue is int cId)
