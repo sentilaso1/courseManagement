@@ -1,0 +1,38 @@
+﻿<Window x:Class="CourseManagerment.AddSchedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagerment"
+        mc:Ignorable="d"
+        Title="Add a new Schedule" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="CourseId:" Margin="5"></Label>
+        <ComboBox Grid.Row="0" Grid.Column="1" Name="cbCourseId" DisplayMemberPath="CourseCode" 
+                  SelectedValuePath="CourseId" Margin="5"></ComboBox>
+        <Label Grid.Row="1" Grid.Column="0" Content="TeachingDate:" Margin="5"></Label>
+        <DatePicker Grid.Row="1" Grid.Column="1" Name="Picker" Margin="5"></DatePicker>
+        <Label Grid.Row="2" Grid.Column="0" Content="Slot:" Margin="5"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="Slot" Margin="5"></TextBox>
+        <Label Grid.Row="3" Grid.Column="0" Content="RoomId:" Margin="5"></Label>
+        <ComboBox Grid.Row="3" Grid.Column="1" Name="cbRoomId" DisplayMemberPath="RoomCode" 
+           SelectedValuePath="RoomId" Margin="5"></ComboBox>
+        <Label Grid.Row="4" Grid.Column="0" Content="Description:" Margin="5"></Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Name="Description" Margin="5"></TextBox>
+        <Button Grid.Row="5" Grid.Column="1" Name="saveAdd" Content="Save Add" 
+                Width="80" HorizontalAlignment="Right" Margin="5" Click="saveAdd_Click"></Button>
+
+    </Grid>
+</Window>
